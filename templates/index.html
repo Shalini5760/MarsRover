@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mission Mars: AI Rover Rescue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="background">
+
+    <!-- HOME SCREEN -->
+    <section id="homeScreen" class="screen active">
+
+        <div class="title-box">
+
+            <div class="planet">♂</div>
+
+            <h1>MISSION MARS</h1>
+
+            <h2>AI ROVER RESCUE</h2>
+
+            <p>
+                Navigate the Martian surface, collect scientific samples,
+                conserve resources and restore communication with Earth.
+            </p>
+
+            <div class="home-steps">
+                <span>1. Collect blue samples</span><span>2. Avoid dark rocks</span><span>3. Reach green COMMS</span>
+            </div>
+            <button class="primary" onclick="showNameScreen()">START MISSION</button>
+            <button class="secondary" onclick="showInstructions()">HOW TO PLAY</button>
+            <button class="link-button" onclick="showLeaderboard()">LEADERBOARD</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- INSTRUCTIONS -->
+    <section id="instructionScreen" class="screen">
+
+        <div class="panel">
+
+            <h2>MISSION BRIEFING</h2>
+
+            <p>
+                You are controlling an exploration rover on Mars.
+                Complete scientific missions before your resources run out.
+            </p>
+
+            <h3>Controls</h3>
+
+            <p>⬆ / W — Move Up</p>
+            <p>⬇ / S — Move Down</p>
+            <p>⬅ / A — Move Left</p>
+            <p>➡ / D — Move Right</p>
+
+            <h3>Objectives</h3>
+
+            <p>🔬 Collect scientific samples</p>
+            <p>🔋 Conserve battery</p>
+            <p>🌪 Avoid dust storms</p>
+            <p>📡 Reach the communication station</p>
+
+            <button onclick="showHome()">
+                BACK
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLAYER NAME -->
+    <section id="nameScreen" class="screen">
+
+        <div class="panel">
+
+            <h2>MISSION REGISTRATION</h2>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Commander name (optional)"
+                maxlength="30"
+            >
+
+            <button onclick="startGame()">
+                BEGIN MISSION
+            </button>
+
+            <button onclick="showHome()">
+                BACK
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAME -->
+    <section id="gameScreen" class="screen">
+
+        <div class="game-header">
+
+            <div><small>MISSION</small><strong id="missionNumber">1</strong></div>
+            <div><small>SCORE</small><strong id="score">0</strong></div>
+            <div><small>TIME</small><strong><span id="timer">0</span>s</strong></div>
+
+        </div>
+
+
+        <div class="resource-bar">
+
+            <div>
+                🔋 Battery
+                <div class="bar">
+                    <div id="batteryBar"></div>
+                </div>
+                <span id="batteryText">100%</span>
+            </div>
+
+            <div>
+                🫁 Oxygen
+                <div class="bar">
+                    <div id="oxygenBar"></div>
+                </div>
+                <span id="oxygenText">100%</span>
+            </div>
+
+            <div>
+                🔬 Samples:
+                <span id="sampleText">0</span>/<span id="requiredSamples">3</span>
+            </div>
+
+        </div>
+
+
+        <div class="game-area">
+
+            <div class="map-wrap">
+                <div class="map-key"><span>ROVER</span><span class="sample-key">BLUE = SAMPLE</span><span class="comms-key">GREEN = COMMS</span></div>
+                <canvas id="gameCanvas" width="900" height="550"></canvas>
+                <div class="drive-controls" aria-label="Rover movement controls">
+                    <span></span><button data-key="arrowup" aria-label="Move up">UP</button><span></span>
+                    <button data-key="arrowleft" aria-label="Move left">LEFT</button><button data-key="arrowdown" aria-label="Move down">DOWN</button><button data-key="arrowright" aria-label="Move right">RIGHT</button>
+                </div>
+            </div>
+
+            <div class="side-panel">
+
+                <h3>YOUR NEXT STEP</h3>
+
+                <p id="objectiveText">
+                    Collect 3 scientific samples.
+                </p>
+
+                <hr>
+
+                <h3>AI NAVIGATION</h3>
+
+                <button onclick="findSafeRoute()">SHOW ME THE WAY</button>
+
+                <button class="quit-button" onclick="quitMission()">QUIT MISSION</button>
+
+                <p id="aiMessage">
+                    Drive to a blue sample marker to begin.
+                </p>
+
+                <hr>
+
+                <h3>SCIENTIFIC DISCOVERY</h3>
+
+                <div id="discoveryBox">
+                    Explore the surface to discover Martian science.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MISSION COMPLETE -->
+    <section id="completeScreen" class="screen">
+
+        <div class="panel">
+
+            <h1>MISSION COMPLETE 🚀</h1>
+
+            <p id="completeMessage"></p>
+
+            <h2>
+                SCORE:
+                <span id="finalScore">0</span>
+            </h2>
+
+            <p>
+                Samples:
+                <span id="finalSamples">0</span>
+            </p>
+
+            <p>
+                Battery:
+                <span id="finalBattery">0</span>%
+            </p>
+
+            <button id="nextMissionButton" onclick="nextMission()">
+                NEXT MISSION
+            </button>
+
+            <button onclick="showLeaderboard()">
+                LEADERBOARD
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAME OVER -->
+    <section id="gameOverScreen" class="screen">
+
+        <div class="panel">
+
+            <h1>MISSION FAILED</h1>
+
+            <p id="gameOverReason"></p>
+
+            <button onclick="restartGame()">
+                RETRY
+            </button>
+
+            <button onclick="showHome()">
+                MAIN MENU
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEADERBOARD -->
+    <section id="leaderboardScreen" class="screen">
+
+        <div class="panel">
+
+            <h2>🏆 MARS EXPLORER LEADERBOARD</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Commander</th>
+                        <th>Score</th>
+                        <th>Mission</th>
+                    </tr>
+                </thead>
+
+                <tbody id="leaderboardBody"></tbody>
+
+            </table>
+
+            <button onclick="showHome()">
+                BACK
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='game.js') }}"></script>
+
+</body>
+</html>
