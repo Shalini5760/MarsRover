@@ -552,6 +552,13 @@ th {
    TABLET
    ========================================================= */
 
+@media (max-width: 1100px) {
+    .mission-backdrop .scene-rover {
+        --rover-travel: -7vw;
+        width: clamp(340px, 48vw, 510px);
+    }
+}
+
 @media (max-width: 850px) {
 
     .game-header {
@@ -701,4 +708,1008 @@ button.link-button { background: transparent; color: #ffad76; padding-left: 12px
 
 @media (max-width: 850px) {
     .drive-controls { grid-template-columns: repeat(3, minmax(60px, 72px)); }
+}
+
+/* Scientific discovery cards pair each field note with a specimen preview. */
+#discoveryBox {
+    min-height: 170px;
+}
+
+.discovery-card,
+.discovery-empty {
+    padding: 15px;
+    border: 1px solid rgba(118, 184, 202, .24);
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(26, 40, 48, .78), rgba(15, 20, 28, .88));
+}
+
+.discovery-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 12px;
+}
+
+.discovery-title {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+}
+
+.discovery-title small,
+.discovery-caption {
+    color: #8ed9e8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.discovery-title strong {
+    color: #fff4e9;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.discovery-card p {
+    margin: 0 0 13px;
+    color: #d8e0e2;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.groq-study-button {
+    width: 100%;
+    margin: 12px 0 0;
+    padding: 11px 12px;
+    border: 1px solid rgba(113, 223, 255, .4);
+    background: linear-gradient(120deg, rgba(28, 107, 133, .82), rgba(38, 68, 104, .82));
+    color: #e5faff;
+    font-size: 12px;
+    letter-spacing: .6px;
+}
+
+.groq-study-button:disabled {
+    cursor: wait;
+    opacity: .75;
+}
+
+.discovery-card p.groq-analysis {
+    margin: 12px 0 0;
+    color: #d8edf1;
+    font-size: 13px;
+    line-height: 1.65;
+    white-space: pre-line;
+}
+
+.discovery-caption {
+    display: block;
+    padding-top: 10px;
+    border-top: 1px solid rgba(142, 217, 232, .16);
+    color: #a5b9bd;
+    font-size: 9px;
+}
+
+.specimen-visual {
+    --specimen-color: #71dfff;
+    position: relative;
+    display: block;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--specimen-color) 48%, transparent);
+    border-radius: 12px;
+    background:
+        radial-gradient(circle at 50% 56%, color-mix(in srgb, var(--specimen-color) 24%, transparent), transparent 64%),
+        rgba(8, 14, 21, .75);
+}
+
+.specimen-visual i {
+    position: absolute;
+    display: block;
+    background: linear-gradient(140deg, #fff 0%, var(--specimen-color) 36%, color-mix(in srgb, var(--specimen-color) 48%, #151923) 100%);
+    box-shadow: 0 0 13px color-mix(in srgb, var(--specimen-color) 55%, transparent);
+}
+
+.specimen-shard i:first-child {
+    inset: 10px 16px 9px;
+    clip-path: polygon(50% 0, 100% 36%, 78% 100%, 20% 92%, 0 34%);
+}
+
+.specimen-shard i:nth-child(2) {
+    top: 11px;
+    left: 28px;
+    width: 1px;
+    height: 34px;
+    background: rgba(255, 255, 255, .8);
+}
+
+.specimen-layered i:first-child {
+    inset: 17px 9px 13px;
+    border-radius: 45% 38% 40% 44%;
+    transform: rotate(-12deg);
+}
+
+.specimen-layered i:nth-child(2),
+.specimen-layered i:nth-child(3) {
+    left: 13px;
+    width: 29px;
+    height: 2px;
+    background: rgba(255, 242, 218, .75);
+}
+
+.specimen-layered i:nth-child(2) { top: 29px; }
+.specimen-layered i:nth-child(3) { top: 35px; }
+
+.specimen-sphere i:first-child {
+    inset: 13px;
+    border-radius: 50%;
+}
+
+.specimen-sphere i:nth-child(2) {
+    top: 19px;
+    left: 20px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .7);
+}
+
+.specimen-fragment i:first-child {
+    inset: 13px 10px 12px;
+    clip-path: polygon(10% 24%, 37% 0, 65% 13%, 100% 34%, 88% 81%, 50% 100%, 8% 78%);
+}
+
+.specimen-fragment i:nth-child(2) {
+    top: 18px;
+    left: 26px;
+    width: 2px;
+    height: 23px;
+    transform: rotate(-25deg);
+    background: rgba(255, 255, 255, .72);
+}
+
+.specimen-cluster i:first-child,
+.specimen-cluster i:nth-child(2),
+.specimen-cluster i:nth-child(3) {
+    width: 17px;
+    height: 23px;
+    clip-path: polygon(50% 0, 100% 35%, 80% 100%, 18% 90%, 0 34%);
+}
+
+.specimen-cluster i:first-child { top: 21px; left: 9px; }
+.specimen-cluster i:nth-child(2) { top: 12px; left: 20px; }
+.specimen-cluster i:nth-child(3) { top: 23px; left: 31px; }
+
+.discovery-empty {
+    display: grid;
+    justify-items: start;
+    gap: 10px;
+    color: #d8e0e2;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.discovery-empty strong { color: #fff4e9; }
+
+/* Mission-control visual system and layered Mars landing scene. */
+body {
+    background: #090b12;
+    color: #f4eee8;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.background {
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 76% 12%, rgba(142, 66, 46, .2), transparent 35%),
+        radial-gradient(ellipse at 16% 80%, rgba(45, 63, 85, .17), transparent 42%),
+        linear-gradient(135deg, #090b12 0%, #11131b 52%, #0b0c12 100%);
+}
+
+.background::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, .3) .7px, transparent .7px);
+    background-size: 58px 58px;
+    content: "";
+    opacity: .13;
+    pointer-events: none;
+}
+
+.background.game-playing {
+    min-height: 100vh;
+    overflow: hidden;
+    background: #39343a;
+}
+
+.background.game-playing::before,
+.background.game-playing > .mission-backdrop {
+    display: none;
+}
+
+.screen { padding: clamp(16px, 4vw, 56px); }
+
+.screen {
+    position: relative;
+    z-index: 1;
+}
+
+.title-box,
+.panel {
+    border: 1px solid rgba(255, 191, 145, .18);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(26, 27, 34, .97), rgba(13, 15, 22, .98));
+    box-shadow: 0 32px 100px rgba(0, 0, 0, .58), inset 0 1px rgba(255, 255, 255, .05);
+    backdrop-filter: blur(16px);
+}
+
+.panel {
+    background: linear-gradient(145deg, rgba(26, 27, 34, .82), rgba(13, 15, 22, .86));
+}
+
+.background.home-screen-active > .mission-backdrop {
+    display: block;
+}
+
+.background:not(.game-playing) > .mission-backdrop {
+    display: block;
+}
+
+.hero-scene.mission-backdrop {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    opacity: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(8, 10, 16, .88) 0%, rgba(8, 10, 16, .72) 32%, rgba(8, 10, 16, .18) 72%, rgba(8, 10, 16, .12) 100%),
+        linear-gradient(180deg, rgba(8, 10, 16, .08), rgba(8, 10, 16, .32)),
+        url("mars-home-background.png") center / cover no-repeat;
+    box-shadow: none;
+    animation: mars-scene-pan 55s ease-in-out infinite alternate;
+}
+
+.mission-backdrop > * {
+    display: none;
+}
+
+@keyframes mars-scene-pan {
+    from { background-position: center, 48% 50%; }
+    to { background-position: center, 53% 50%; }
+}
+
+#homeScreen.active { align-items: center; }
+
+#homeScreen .title-box {
+    display: block;
+    width: min(1240px, 100%);
+    min-height: min(720px, calc(100vh - 64px));
+    padding: clamp(28px, 5vw, 70px);
+    overflow: visible;
+    text-align: left;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 570px;
+    text-shadow: 0 2px 14px rgba(5, 7, 12, .75);
+}
+
+.eyebrow,
+.hero-status {
+    color: #b6b4bd;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+.eyebrow span,
+.hero-status span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ef8955;
+    box-shadow: 0 0 14px #ef8955;
+}
+
+.title-box h1 {
+    margin: 0;
+    font-size: clamp(58px, 8vw, 104px);
+    font-weight: 850;
+    letter-spacing: -5px;
+    line-height: .88;
+}
+
+.title-box h1 em {
+    color: #f58d5a;
+    font-style: normal;
+    text-shadow: 0 8px 38px rgba(245, 141, 90, .2);
+}
+
+.title-box h2 {
+    margin: 20px 0 18px;
+    color: #d6d2d0;
+    font-size: clamp(16px, 2vw, 21px);
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.title-box p {
+    max-width: 420px;
+    margin: 0 0 24px;
+    color: #aaaab3;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.home-steps { justify-content: flex-start; gap: 8px; margin: 0 0 25px; }
+.home-steps span {
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: #ceccd1;
+    background: rgba(255, 255, 255, .035);
+    font-size: 10px;
+    letter-spacing: .3px;
+}
+
+.home-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+button {
+    border-radius: 7px;
+    background: #e67d4e;
+    box-shadow: 0 7px 22px rgba(230, 125, 78, .16);
+    font-size: 12px;
+    letter-spacing: .8px;
+}
+button.primary { min-height: 50px; padding: 0 20px; }
+button.primary span { padding-left: 16px; font-size: 17px; }
+button.secondary {
+    min-height: 50px;
+    background: rgba(255, 255, 255, .04);
+    border-color: rgba(255, 255, 255, .18);
+    box-shadow: none;
+}
+button.link-button { color: #d8c1b5; font-size: 10px; box-shadow: none; }
+.hero-status { display: flex; align-items: center; gap: 10px; margin-top: 29px; font-size: 9px; letter-spacing: 1.4px; }
+.hero-status span { width: 6px; height: 6px; background: #71dca7; box-shadow: 0 0 12px #71dca7; }
+.hero-status b { color: #65636e; }
+
+.hero-scene {
+    position: relative;
+    min-height: 485px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 18px;
+    background:
+        radial-gradient(ellipse at 55% 64%, rgba(212, 105, 69, .26), transparent 35%),
+        linear-gradient(180deg, #111722 0%, #22202a 49%, #5b2c27 100%);
+    perspective: 900px;
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, .4), 0 20px 50px rgba(0, 0, 0, .22);
+}
+
+.scene-stars {
+    position: absolute;
+    inset: 0 0 35%;
+    background-image:
+        radial-gradient(1px 1px at 15% 22%, #fff, transparent),
+        radial-gradient(1px 1px at 31% 47%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 72% 21%, #fff, transparent),
+        radial-gradient(1px 1px at 84% 53%, #fff, transparent),
+        radial-gradient(1px 1px at 60% 11%, #fff, transparent),
+        radial-gradient(1px 1px at 44% 29%, #fff, transparent);
+    opacity: .62;
+}
+
+.scene-planet {
+    position: absolute;
+    top: 7%;
+    right: 12%;
+    width: clamp(100px, 16vw, 176px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at 28% 35%, rgba(242, 173, 126, .9) 0 3%, transparent 4%),
+        radial-gradient(ellipse at 63% 52%, rgba(83, 37, 35, .56) 0 8%, transparent 9%),
+        radial-gradient(ellipse at 39% 68%, rgba(85, 43, 38, .5) 0 12%, transparent 13%),
+        radial-gradient(circle at 32% 28%, #f3b083, #c9674d 44%, #763c3a 76%, #37212b);
+    box-shadow: -18px 5px 38px rgba(242, 119, 77, .18), inset -20px -8px 35px rgba(18, 17, 27, .75);
+    animation: planet-drift 9s ease-in-out infinite;
+}
+
+.scene-planet::after {
+    position: absolute;
+    top: 16%;
+    left: -20%;
+    width: 140%;
+    height: 68%;
+    border: 1px solid rgba(245, 187, 149, .48);
+    border-radius: 50%;
+    content: "";
+    transform: rotate(-24deg);
+}
+
+.scene-planet span {
+    position: absolute;
+    top: 18%;
+    left: 0;
+    width: 34%;
+    height: 64%;
+    border-radius: 50%;
+    background: rgba(255, 194, 154, .12);
+    filter: blur(11px);
+}
+
+.scene-orbit {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    width: 210px;
+    height: 150px;
+    border: 1px solid rgba(238, 180, 153, .14);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+.scene-horizon {
+    position: absolute;
+    right: -10%;
+    bottom: 22%;
+    left: -10%;
+    height: 39%;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(180deg, #9c4c3a, #602c2d 74%);
+    box-shadow: 0 -12px 38px rgba(227, 115, 73, .18);
+    transform: rotate(-3deg);
+}
+
+.scene-ridge { position: absolute; right: -12%; bottom: 12%; left: -12%; height: 35%; }
+.ridge-back {
+    background: linear-gradient(166deg, transparent 0 21%, #743638 21.5% 58%, #4b292e 58.5%);
+    clip-path: polygon(0 51%, 15% 38%, 28% 45%, 45% 14%, 57% 47%, 72% 25%, 88% 39%, 100% 18%, 100% 100%, 0 100%);
+    opacity: .86;
+}
+.ridge-front {
+    bottom: -5%;
+    height: 33%;
+    background: linear-gradient(172deg, #bd6043 0%, #763638 55%, #3d252c 100%);
+    clip-path: polygon(0 42%, 17% 25%, 34% 48%, 54% 17%, 70% 37%, 85% 20%, 100% 35%, 100% 100%, 0 100%);
+    filter: drop-shadow(0 -6px 10px rgba(252, 151, 96, .16));
+}
+
+.scene-glow {
+    position: absolute;
+    right: 2%;
+    bottom: 8%;
+    left: 4%;
+    height: 24%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(242, 129, 77, .26), transparent 70%);
+    filter: blur(13px);
+}
+
+.scene-rover {
+    position: absolute;
+    z-index: 2;
+    right: 23%;
+    bottom: 24%;
+    width: 158px;
+    height: 120px;
+    transform: rotateX(12deg) rotateZ(-12deg);
+    animation: rover-hover 4s ease-in-out infinite;
+}
+
+.scene-coordinate,
+.scene-label {
+    position: absolute;
+    z-index: 3;
+    color: rgba(255, 239, 225, .77);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    line-height: 1.7;
+}
+.scene-coordinate { top: 28px; left: 28px; }
+.scene-label { right: 23px; bottom: 22px; font-weight: bold; }
+.scene-label span { display: block; color: rgba(255, 239, 225, .52); font-size: 7px; }
+
+@keyframes planet-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes rover-hover { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+@keyframes rover-drive {
+    0%, 100% { translate: 0 0; }
+    50% { translate: var(--rover-travel) -5px; }
+}
+.panel { color: #f4eee8; }
+.panel h1, .panel h2 { color: #fff4eb; }
+.panel h3, th { color: #f4a078; }
+.panel p { color: #c9c4c2; }
+input {
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .06);
+}
+
+.game-header > div,
+.resource-bar,
+.side-panel {
+    border: 1px solid rgba(255, 191, 145, .16);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(25, 27, 35, .88), rgba(14, 16, 23, .9));
+    box-shadow: 0 14px 35px rgba(0, 0, 0, .2), inset 0 1px rgba(255, 255, 255, .04);
+}
+
+.game-header small { color: #ed9b75; }
+.resource-bar { color: #d8d3d0; }
+.bar { border-color: rgba(255, 255, 255, .1); background: #252832; }
+.map-key { color: #d4d1d3; }
+.map-key span { border-color: rgba(255, 255, 255, .15); background: rgba(255, 255, 255, .04); }
+.map-wrap {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+#gameCanvas {
+    min-height: 0;
+    border: 1px solid rgba(255, 208, 168, .4);
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .45), inset 0 0 25px rgba(0, 0, 0, .18);
+}
+.side-panel { color: #d6d1d0; }
+.side-panel h3 { color: #f4a078; }
+.side-panel hr { border-top-color: rgba(255, 255, 255, .12); }
+.side-panel .quit-button { border-color: rgba(255, 140, 119, .45); }
+td { color: #d8d3d0; }
+th, td { border-bottom-color: rgba(255, 255, 255, .1); }
+
+@media (max-width: 850px) {
+    #homeScreen .title-box {
+        min-height: 0;
+        padding: clamp(25px, 6vw, 48px);
+    }
+}
+
+@media (max-width: 600px) {
+    #homeScreen .title-box { min-height: 0; }
+    .title-box h1 { font-size: clamp(58px, 16vw, 78px); letter-spacing: -3px; }
+    .title-box h2 { letter-spacing: 3px; }
+    .home-steps span { font-size: 9px; }
+    .home-actions { align-items: stretch; }
+    .home-actions button { flex-grow: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
+/* The mission world fills the viewport, with compact HUD controls layered above it. */
+#gameScreen.active {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    isolation: isolate;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    padding: 12px;
+    overflow: hidden;
+}
+
+#game3dContainer {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    aspect-ratio: auto;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+#game3dContainer canvas {
+    pointer-events: none;
+}
+
+#game3dContainer .canvas-overlay-badges {
+    pointer-events: none;
+}
+
+#gameScreen .mission-hud {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 8px;
+    width: min(920px, calc(100% - 360px));
+    margin: 0 16px 0 auto;
+    pointer-events: none;
+}
+
+#gameScreen .game-header,
+#gameScreen .resource-bar {
+    position: relative;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 8px;
+    gap: 8px;
+    background: rgba(14, 16, 23, .76);
+    border: 1px solid rgba(255, 173, 118, .25);
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+}
+
+#gameScreen .game-header {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#gameScreen .game-header > div {
+    padding: 7px 10px;
+    background: rgba(14, 16, 23, .58);
+    border-radius: 7px;
+}
+
+#gameScreen .game-header strong {
+    font-size: 18px;
+}
+
+#gameScreen .resource-bar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    font-size: 13px;
+}
+
+#gameScreen .resource-bar > div {
+    min-width: 0;
+    gap: 6px;
+    justify-content: center;
+}
+
+#gameScreen .bar {
+    width: clamp(50px, 7vw, 95px);
+    height: 10px;
+}
+
+#gameScreen .side-panel {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    min-height: 0;
+    max-height: 128px;
+    margin: 0;
+    padding: 10px 14px;
+    overflow: visible;
+    background: rgba(14, 16, 23, .76);
+    border: 1px solid rgba(255, 173, 118, .25);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+}
+
+#gameScreen .side-panel h3 {
+    margin: 0 0 4px;
+    color: #f4a078;
+    font-size: 11px;
+    letter-spacing: .08em;
+}
+
+#gameScreen .side-panel p {
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+#gameScreen .mission-actions {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+#gameScreen .mission-actions button {
+    width: auto;
+    margin: 0;
+    padding: 6px 9px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+#gameScreen .discovery-panel {
+    position: fixed;
+    z-index: 4;
+    left: 16px;
+    top: 16px;
+    width: min(340px, calc(100vw - 32px));
+    max-height: min(42vh, 360px);
+    padding: 12px;
+    overflow-y: auto;
+    color: #f4eee8;
+    font-size: 11px;
+    background: rgba(16, 21, 28, .92);
+    border: 1px solid rgba(142, 217, 232, .32);
+    border-radius: 12px;
+    box-shadow: 0 16px 42px rgba(0, 0, 0, .35);
+    backdrop-filter: blur(12px);
+    pointer-events: auto;
+}
+
+#gameScreen .discovery-panel summary {
+    cursor: pointer;
+    color: #a8e6ef;
+    font-weight: 700;
+    letter-spacing: .05em;
+    white-space: nowrap;
+}
+
+#gameScreen .discovery-panel[open] #discoveryBox {
+    min-height: 0;
+    margin-top: 10px;
+}
+
+#gameScreen .discovery-empty {
+    grid-template-columns: 42px 1fr;
+    align-items: center;
+    gap: 5px 10px;
+    padding: 10px;
+    font-size: 11px;
+}
+
+#gameScreen .discovery-empty .specimen-visual {
+    grid-row: span 2;
+    width: 42px;
+    height: 42px;
+}
+
+#gameScreen .discovery-card {
+    padding: 10px;
+}
+
+#gameScreen .discovery-heading {
+    gap: 9px;
+    margin-bottom: 8px;
+}
+
+#gameScreen .discovery-title strong {
+    font-size: 14px;
+}
+
+#gameScreen .discovery-title small {
+    font-size: 9px;
+}
+
+#gameScreen .discovery-card p {
+    margin-bottom: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+#gameScreen .discovery-card .groq-study-button {
+    margin-top: 8px;
+    padding: 8px;
+    font-size: 10px;
+}
+
+#gameScreen .discovery-caption {
+    font-size: 8px;
+}
+
+#gameScreen .game-area,
+#gameScreen .map-wrap {
+    display: contents;
+}
+
+#gameScreen .canvas-overlay-badges {
+    display: none;
+}
+
+#gameScreen .drive-controls {
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    bottom: 14px;
+    margin: 0;
+    transform: translateX(-50%);
+    pointer-events: auto;
+}
+
+#gameScreen .drive-controls button {
+    touch-action: none;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+#gameScreen .drive-controls button:active {
+    background: #f08b55;
+    transform: scale(.96);
+}
+
+#gameScreen .drive-control-hint {
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    bottom: 128px;
+    margin: 0;
+    padding: 5px 10px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 999px;
+    background: rgba(14, 16, 23, .82);
+    color: #f4eee8;
+    font-size: 11px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+#gameScreen .camera-view-btn {
+    z-index: 3;
+    top: 184px;
+    right: 16px;
+    bottom: auto;
+}
+
+@media (max-width: 850px) {
+    #gameScreen .mission-hud {
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 6px;
+        margin: 0 auto;
+    }
+
+    #gameScreen .resource-bar {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #gameScreen .side-panel {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    }
+
+    #gameScreen .discovery-panel {
+        top: clamp(252px, 31vh, 290px);
+        left: 12px;
+        width: min(320px, calc(100vw - 24px));
+        max-height: min(30vh, 240px);
+    }
+}
+
+@media (max-width: 600px) {
+    #gameScreen.active {
+        padding: 8px;
+    }
+
+    #gameScreen .game-header,
+    #gameScreen .resource-bar {
+        gap: 5px;
+        padding: 6px;
+    }
+
+    #gameScreen .game-header > div {
+        padding: 5px 7px;
+    }
+
+    #gameScreen .game-header small {
+        margin-bottom: 2px;
+        font-size: 9px;
+    }
+
+    #gameScreen .game-header strong {
+        font-size: 15px;
+    }
+
+    #gameScreen .resource-bar {
+        font-size: 11px;
+    }
+
+    #gameScreen .resource-bar > div {
+        flex-wrap: wrap;
+        gap: 4px;
+        white-space: normal;
+    }
+
+    #gameScreen .bar {
+        width: clamp(42px, 16vw, 72px);
+        height: 8px;
+    }
+
+    #gameScreen .side-panel {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 6px 10px;
+        padding: 8px 10px;
+    }
+
+    #gameScreen .mission-navigation {
+        grid-column: 2;
+    }
+
+    #gameScreen .mission-actions {
+        flex-wrap: wrap;
+    }
+
+    #gameScreen .mission-actions button {
+        padding: 5px 7px;
+        font-size: 9px;
+    }
+
+    #gameScreen .side-panel p {
+        font-size: 11px;
+    }
+
+    #gameScreen .discovery-panel {
+        left: 8px;
+        top: clamp(252px, 31vh, 290px);
+        width: min(280px, calc(100vw - 16px));
+        max-height: min(30vh, 240px);
+        padding: 8px;
+    }
+
+    #gameScreen .canvas-overlay-badges {
+        display: none;
+    }
+
+    #gameScreen .drive-controls {
+        bottom: 10px;
+        grid-template-columns: repeat(3, 60px);
+    }
+
+    #gameScreen .drive-control-hint {
+        display: none;
+    }
+
+    #gameScreen .drive-controls button {
+        min-height: 42px;
+        touch-action: none;
+    }
+
+    #gameScreen .camera-view-btn {
+        right: 8px;
+        top: 268px;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+}
+
+@media (max-height: 520px) {
+    #gameScreen .mission-hud {
+        grid-template-columns: minmax(200px, .8fr) minmax(0, 1.2fr);
+        gap: 5px;
+    }
+
+    #gameScreen .discovery-panel {
+        top: 16px;
+    }
+
+    #gameScreen .camera-view-btn {
+        top: 198px;
+    }
+
+    #gameScreen .side-panel {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
+        grid-column: 1 / -1;
+        padding: 6px 10px;
+    }
+
+    #gameScreen .resource-bar {
+        font-size: 11px;
+    }
+
+    #gameScreen .discovery-panel { max-height: 34vh; }
 }
